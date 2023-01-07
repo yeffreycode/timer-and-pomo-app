@@ -1,0 +1,243 @@
+$bg-color: #def;
+$txt-color: #345;
+
+//widths
+$mobile-width: 95%;
+$tablet-width: 80%;
+$small-desktop-width: 70%;
+$desktop-width: 50%;
+
+//media
+$tablet: 700px;
+$small-desktop: 900px;
+$desktop: 1200px;
+// buttons
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+#root {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: $bg-color;
+  color: $txt-color;
+}
+/* === components ===*
+  * Timer
+  * Pomodoro
+  * Home
+*/
+/* pomodoro */
+.pomodoro {
+  width: $mobile-width;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.p-nav {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+.p-nav button {
+  flex: 1;
+  font-weight: bolder;
+  font-size: 20px;
+  width: min-content;
+  border: none;
+  background-color: #0000;
+  border-bottom: 3px solid #189;
+}
+.p-nav button:hover {
+  color: #189;
+}
+.p-nav .to-pomo,
+.p-nav .to-timer {
+  border-bottom: 1px solid grey;
+}
+// title
+.pomo-title,
+.timer-title {
+  font-size: 35px;
+  color: #189;
+}
+.pomo-header {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pomo-info {
+  color: #000;
+  font-weight: bold;
+}
+.pomo-info span:last-child {
+  margin-left: 10px;
+}
+.pomo-header button {
+  margin-left: 10px;
+  background-color: transparent;
+  padding: 5px;
+  color: #189;
+  border: none;
+}
+.pomo-timer {
+  margin-top: 10px;
+  font-size: 60px;
+  font-weight: bolder;
+}
+.pomo-controls {
+  margin-top: 10px;
+}
+.pomo-controls button {
+  background: linear-gradient(to left bottom, #345, #189);
+  padding: 7px 20px;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-weight: bolder;
+}
+
+.pomo-controls button:last-child {
+  margin-left: 10px;
+}
+
+@media screen and (min-width: $tablet) {
+  .pomodoro {
+    width: $tablet-width;
+  }
+}
+@media screen and (min-width: $desktop) {
+  .pomodoro {
+    width: $small-desktop-width;
+  }
+}
+@media screen and (min-width: $desktop) {
+  .pomodoro {
+    width: $desktop-width;
+  }
+}
+
+/*settings pomodoro*/
+.form-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-s-group {
+  font-weight: bolder;
+  margin-top: 10px;
+}
+.form-s-group input {
+  background-color: #def;
+  font-weight: bolder;
+  border: none;
+  border-bottom: 2px solid #000;
+  color: #123;
+}
+.form-s-group:last-child {
+  margin-top: 20px;
+}
+.form-s-group button {
+  background: linear-gradient(to left bottom, #345, #189);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 20px;
+}
+
+.form-s-group button:last-child {
+  margin-left: 10px;
+}
+/* Timer */
+.timer {
+  @extend .pomodoro;
+}
+.timer-header {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.timer-header .to-home {
+  background-color: #def;
+  margin-left: 20px;
+  color: #000;
+  border: none;
+}
+
+.timer-header h3 {
+  display: inline-block;
+}
+
+//timer box
+.timer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.timer-content {
+  position: relative;
+  font-size: 50px;
+  font-weight: bolder;
+  color: #123;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.opacity-number {
+  opacity: 0.5;
+}
+
+.box-hidden {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  background-color: #def0;
+  z-index: 2;
+}
+#timer-input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  border: none;
+}
+.timer-buttons {
+  margin-top: 20px;
+}
+.timer-buttons button {
+  background: linear-gradient(to left bottom, #345, #189);
+  border: none;
+  border-radius: 5px;
+  font-weight: bolder;
+  color: #fff;
+  padding: 7px 30px;
+}
+.timer-buttons button:hover,
+.pomo-controls button:hover,
+.form-s-group button:hover {
+  scale: 1.05;
+  background: linear-gradient(to left bottom, #456, #29a);
+}
+.timer-buttons button:nth-child(2) {
+  margin-left: 20px;
+}
+.tim-cursor {
+  border-right: 1px solid black;
+}
